@@ -2,9 +2,11 @@ import { Button, Rows, Text } from "@canva/app-ui-kit";
 import { addNativeElement } from "@canva/design";
 import * as React from "react";
 import styles from "styles/components.css";
+import { auth } from "@canva/user";
 
 export const App = () => {
-  const onClick = () => {
+  const onClick = asynci() => {
+    const result = await auth.requestAuthentication();
     addNativeElement({
       type: "TEXT",
       children: ["Hello world!"],
@@ -20,7 +22,7 @@ export const App = () => {
           reopen the app in the editor to preview the changes.
         </Text>
         <Button variant="primary" onClick={onClick} stretch>
-          Do something cool
+          Let's Auth!
         </Button>
       </Rows>
     </div>
