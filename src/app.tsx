@@ -5,7 +5,7 @@ import styles from "styles/components.css";
 import { auth } from "@canva/user";
 
 export const App = () => {
-  const onClick = asynci() => {
+  const onClick = async() => {
     const result = await auth.requestAuthentication();
     addNativeElement({
       type: "TEXT",
